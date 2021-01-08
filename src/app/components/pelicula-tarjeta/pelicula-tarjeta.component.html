@@ -1,0 +1,14 @@
+<div class="card animated fadeIn fast">
+  <img class="card-img-top img-fluid imagen" src="{{ pelicula.imagen }}" [alt]="pelicula.nombre" (click)="verPelicula()">
+  <div class="card-body">
+    <h4 class="card-title">{{ pelis.Titulo }}</h4>
+    <p class="card-text"> {{ pelis.Descripcion }} </p>
+    <div class="row">
+      <p class="card-text"> <small class="text-muted"> {{ pelis.Duracion }}</small></p>
+      <p class="card-text">
+        <label *ngIf="pelicula.fav" class="badge badge-outline-warning"><i class="fas fa-star text-warning"></i></label>
+        <label *ngIf="!pelicula.fav" class="badge badge-outline-warning"><i class="far fa-star text-warning"></i></label>
+      </p>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,31 @@
+.contenedor {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+    .contenedor-formulario {
+      width: 400px;
+    }
+  
+    .download {
+      background: green;
+      color: #FFFFFF;
+      padding: 10px 20px;
+      margin-bottom: 20px;
+    }
+  
+    .imagen{
+    
+      max-width: 500px;
+  
+      max-height: 500px;
+    }
+
+    .download{
+
+      width: 100%;
+      text-align: center;
+
+    }

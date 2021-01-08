@@ -1,0 +1,100 @@
+<h1>Agregar película</h1>
+<hr>
+
+<div class="row text-right">
+  <div class="col">
+    <button class="btn btn-danger" routerLink="/peliculasTabla">
+      <i class="fa fa-arrow-left"></i> Regresar</button>
+  </div>
+</div>
+
+<form [formGroup]="archivoForm" (ngSubmit)="subirArchivo()">
+  <div class="form-group">
+    <label class="file-label"><label>Imagen</label>
+    <div class="input-group mb-3">
+      <div class="custom-file">
+        <input type="file" class="custom-file-input" accept="image/*" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01" formControlName="archivo" (change)="cambioArchivo($event)">
+          <label class="custom-file-label" for="inputGroupFile01">Elige una...</label>
+      </div>
+    </div>
+    
+    <img class="imagen" id="blah"  [src]="imageSrc" style="overflow:hidden;"/>
+    <span class="file-cta">
+    </span></label>
+
+    <label class="download" *ngIf="finalizado">¡Imagen subida con éxito!</label>
+    <progress *ngIf="porcentaje > 0 && porcentaje < 100" class="progress is-large is-success" value="{{porcentaje}}" max="100">{{porcentaje}}%</progress>
+    <button class="btn btn-dark" [ngClass]="{'button': true, 'is-success': true, 'is-large': true, 'is-loading': porcentaje > 0 && porcentaje < 100}" [disabled]="!archivoForm.valid">Subir imagen</button>
+  </div>
+</form>
+
+<div class="row animated fadeIn faster">
+  <div class="col">
+    <form (ngSubmit)="guardar( f )" #f="ngForm">
+      <div class="form-group">
+        <label>Título</label>
+        <input type="text" class="form-control" placeholder="Título" [(ngModel)]="peli.Titulo" name="nombre" required>
+      </div>
+
+      <div class="form-group">
+        <label>Director</label>
+        <input type="text" class="form-control" [(ngModel)]="peli.Director" name="direcctor" placeholder="Director">
+      </div>
+
+      <div class="form-group">
+        <label>Descripción</label>
+        <textarea type="text" class="form-control" [(ngModel)]="peli.Descripcion" name="sinopsis"
+          placeholder="Descripcion" id="" cols="30" rows="5"></textarea>
+      </div>
+
+      <div class="form-group">
+        <label>Género</label>
+        <select name="genero" [(ngModel)]="peli.Genero" multiple="true">
+          <option value="Acción">Acción</option>
+          <option value="Aventuras">Aventuras</option>
+          <option value="Animación">Animación</option>
+          <option value="Ciencia Ficción">Ciencia Ficción</option>
+          <option value="Drama">Drama</option>
+          <option value="Terror">Terror</option>
+          <option value="Musical">Musical</option>
+          <option value="Suspense">Suspense</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label>Calificación</label>
+        <select name="calificacion" [(ngModel)]="peli.Calificacion" multiple="true">
+          <option value="Mayor18">+ 18</option>
+          <option value="familia">Para toda la familia</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label>Añadir a favorito</label>
+        <br>
+
+        <button *ngIf="pelis.fav" (click)="pelis.fav = false" class="btn btn-outline-warning w-10" type="button">
+          <i class="fas fa-star"></i>
+          Si
+        </button>
+
+        <button *ngIf="!pelis.fav" (click)="pelis.fav = true" class="btn btn-outline-warning w-10" type="button">
+          <i class="far fa-star"></i>
+          No
+        </button>
+
+      </div>
+      
+      <div class="form-group">
+        <input type="text" id="text_id" value="{{ URLPublica }}" [(ngModel)]="pelicula.imagen" name="imagen"  style="visibility:hidden">
+      </div>
+      
+      <hr>
+      
+      <div class="form-group text-center">
+        <button type="submit" class="btn btn-primary w-25">
+          <i class="fa fa-save"></i> Agregar</button>
+      </div>
+  </form>
+</div>
+</div>

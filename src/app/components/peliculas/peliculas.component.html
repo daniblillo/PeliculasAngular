@@ -1,0 +1,7 @@
+<h1>Películas <small>GestorPelis</small></h1>
+<hr>
+
+
+<div class="card-columns">
+  <app-pelicula-tarjeta (peliculaSeleccionada)="verPelicula( $event )" [pelicula]="foo" [index]="i"  *ngFor="let pelis of pelisRooms; let i = index"></app-pelicula-tarjeta>
+</div>

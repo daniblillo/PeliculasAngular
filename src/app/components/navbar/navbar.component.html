@@ -1,0 +1,33 @@
+<nav *ngIf="user" class="navbar navbar-expand-md navbar-light bg-light bg-faded">
+  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  
+  <a class="navbar-brand" [routerLink]="['peliculas']"><img src="assets/images/favicon.png" width="30" height="30" alt=""></a>
+  
+  <div  class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item" routerLinkActive="active">
+        <a class="nav-link" [routerLink]="['peliculas']">Películas</a>
+      </li>
+      <li class="nav-item" routerLinkActive="active">
+        <a class="nav-link" [routerLink]="['peliculasTabla']">Panel de administración</a>
+      </li>
+    </ul>
+    
+    <!-- BUSCADOR -->
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="text" placeholder="Buscar película" (keyup.enter)="buscarPelicula(buscarTexto.value)" #buscarTexto>
+      <button (click)="hola()" type="button" class="btn btn-primary">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+          <path fill-rule="evenodd" d="M10.442 10.442a1 1 0 0 1 1.415 0l3.85 3.85a1 1 0 0 1-1.414 1.415l-3.85-3.85a1 1 0 0 1 0-1.415z"/>
+          <path fill-rule="evenodd" d="M6.5 12a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11zM13 6.5a6.5 6.5 0 1 1-13 0 6.5 6.5 0 0 1 13 0z"/>
+        </svg>
+      </button>
+    </form>
+    
+    <p class="center color" *ngIf="user">Has iniciado sesión: {{user?.email}}</p>
+    <button (click)="logout()" class="btn btn-outline-primary my-2 my-sm-0" *ngIf="user" type="button">Desconectarse</button>
+  
+  </div>
+</nav> 

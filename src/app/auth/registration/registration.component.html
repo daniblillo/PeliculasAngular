@@ -1,0 +1,32 @@
+<div class="row">
+  <div class="col-12">
+    <h4>Registrarse</h4><hr>
+    <form #userRegForm="ngForm" (ngSubmit)="createUser(userRegForm)">
+      <div class="row" *ngIf="authError"><div class="col-12 alert alert-danger">{{ authError?.message }}</div></div>
+      
+      <div class="row">
+        <div class="col-12">
+          <label for="email">Usuario</label>
+          <input ngModel #email="ngModel" name="email" type="email" class="form-control">
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="col-12">
+          <label for="password">Contraseña</label>
+          <input ngModel #password="ngModel" name="password" type="password" class="form-control">
+        </div>
+      </div>
+      
+      <div class="row mt-2">
+        <div class="col-12">
+          <button class="btn btn-success" type="submit">Registrar</button>
+          <button (click)="volveralogin()"
+          class="btn btn-danger"type="button">Cancelar</button>
+        </div>
+        <div class="col-12"><!--CAMPO VACÍO--></div>
+      </div>
+    
+    </form>
+  </div>
+</div>
