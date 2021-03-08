@@ -22,7 +22,7 @@ export class PeliculasService {
   peliculasFav: Observable<PeliculaModel[]>;
   private pelisFavCollection: AngularFirestoreCollection<PeliculaModel>;
   
-  private url = 'https://app-peliculas.firebaseio.com/';
+  url = 'http://localhost:4000/api/photos';
   fav: Boolean;
   
   constructor(
