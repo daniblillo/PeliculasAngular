@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { User } from 'firebase';
 import { PeliculasService } from '../../services/peliculas.service';
 
 @Component({
@@ -8,7 +9,7 @@ import { PeliculasService } from '../../services/peliculas.service';
 })
 export class LoginComponent implements OnInit {
 authError: any;
-user: firebase.User;
+user: User;
   constructor(private auth: PeliculasService) { }
 
   ngOnInit() {
